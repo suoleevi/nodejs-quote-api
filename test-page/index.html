@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Quotes</title>
+</head>
+<body onload="onLoad()">
+    <p id="quote" style="font-style: italic">Get a random quote by clicking the button</p>
+    <p id="author"></p>
+    <br>
+    <button id="fetchQuote" onclick="fetchQuote()">Get a random quote</button>
+    <br>
+    <br>
+    <p>Store a quote with the form</p>
+    <form id="postQuote">
+        <label for="quote">Quote: </label>
+        <input type="text" name="quote">
+        <label for="author">Author: </label>
+        <input type="text" name="author">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
