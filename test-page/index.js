@@ -1,7 +1,7 @@
 LOCALHOST = "http://localhost:3000"
 
 const fetchQuote = () => {
-    let quote = fetch(LOCALHOST + "/random")
+    let quote = fetch(LOCALHOST + "/quote")
     .then(response => { response.json()
     .then(data => {
             document.getElementById("quote").innerHTML = data.quote;
@@ -18,6 +18,6 @@ const onLoad = () => {
         formData.forEach((value, key) =>  {
             data[key] = value;
         });
-        fetch(LOCALHOST + "/store", {method: 'POST', body: JSON.stringify(data)});
+        fetch(LOCALHOST + "/quote", {method: 'POST', body: JSON.stringify(data)});
     });
 };

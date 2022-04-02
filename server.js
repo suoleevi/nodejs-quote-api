@@ -26,7 +26,6 @@ const storeQuote = async (quoteData) => {
         quotesObj.push(quoteData);
         await fs.writeFile('quotes.json', JSON.stringify(quotesObj));
     } catch (error) {
-        console.log(error);
         return null;
     }
 };
@@ -44,7 +43,7 @@ const requestListener = (req, res) => {
     });
 
     req.on('end', async () => {
-        if (req.method === 'GET' && req.url === '/random') {
+        if (req.method === 'GET' && req.url === '/quote') {
 
             const quote = await getRandomQuote();
             if (quote === null) {
@@ -69,7 +68,7 @@ const requestListener = (req, res) => {
             return res.end();
         }
     
-        else if (req.method === 'POST' && req.url === '/store') {
+        else if (req.method === 'POST' && req.url === '/quote') {
             quoteData = JSON.parse(data);
             if (quoteData.author && quoteData.quote) {
                 const store = await storeQuote(quoteData);
